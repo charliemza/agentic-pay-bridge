@@ -46,3 +46,12 @@ venv.bak/
 Thumbs.db
 .idea/
 .vscode/
+
+# Cryptographic Keys & Local State (Strictly Protected)
+*.pem
+*.key
+*.hex
+*private*
+.license_enclave_state.dat
+00_ThinkConnect_Master_Keys/
+

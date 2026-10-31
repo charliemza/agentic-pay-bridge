@@ -78,10 +78,11 @@ class SettlementEngine:
         if transfer_res["status"] != "SUCCESS":
             return {"status": "FAILED", "reason": transfer_res["reason"]}
 
-        # 4. Generate verifiable transaction proof (SHA-256)
+        # 4. Generate verifiable transaction proof (SHA-256 bound to Enclave Entropy)
         tx_id = f"tx_a2a_{uuid.uuid4().hex[:16]}"
         timestamp = time.time()
-        raw_proof = f"{tx_id}:{sender_agent_id}:{receiver_agent_id}:{amount}:{asset}:{chain}:{timestamp}"
+        enclave_entropy = auth_check.get("entropy", "")
+        raw_proof = f"{tx_id}:{sender_agent_id}:{receiver_agent_id}:{amount}:{asset}:{chain}:{timestamp}:{enclave_entropy}"
         tx_hash = hashlib.sha256(raw_proof.encode("utf-8")).hexdigest()
 
         record = {
@@ -95,6 +96,8 @@ class SettlementEngine:
             "latency_ms": round(security_check.get("elapsed_ms", 12.4), 2),
             "timestamp": timestamp,
             "tx_hash": tx_hash,
+            "enclave_entropy": enclave_entropy,
+            "license_mode": auth_check.get("mode", "UNKNOWN"),
             "idempotency_key": idempotency_key or tx_id,
             "status": "SETTLED"
         }
@@ -110,8 +113,18 @@ class SettlementEngine:
             "asset": asset,
             "chain": chain,
             "settled_at": timestamp,
+            "license_mode": auth_check.get("mode"),
             "settlement_latency_ms": record["latency_ms"]
         }
+
+    def verify_settlement_proof(self, tx_id: str) -> bool:
+        tx = self.get_transaction_by_id(tx_id)
+        if not tx:
+            return False
+        expected = hashlib.sha256(
+            f"{tx['tx_id']}:{tx['sender_agent_id']}:{tx['receiver_agent_id']}:{tx['amount']}:{tx['asset']}:{tx['settlement_chain']}:{tx['timestamp']}:{tx.get('enclave_entropy', '')}".encode("utf-8")
+        ).hexdigest()
+        return tx["tx_hash"] == expected
 
     def get_transaction_by_id(self, tx_id: str) -> Optional[Dict[str, Any]]:
         for tx in self.ledger:
