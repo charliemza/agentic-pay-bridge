@@ -14,6 +14,8 @@
 
 > **Reference sandbox.** This public repository is an in-memory reference implementation for architecture review and API evaluation. Production blockchain adapters (on-chain USDC settlement), persistent ledger, per-client API keys and signed webhooks are available under license — contact `carlos@thinkconnect.com.ar`.
 
+> **🔗 Live on-chain proof (Base Sepolia testnet).** Real USDC transfer executed by the licensed production adapter on 31/10/2026: **included in a block 0.59 s after broadcast** (block 52,790,352). Verify it yourself: [`0x91db9ca6…cbd30f4` on Basescan](https://sepolia.basescan.org/tx/0x91db9ca644eb8b6bf911cf3e482cdeec9cb619b5429c1742d07e43d6cdbd30f4). *Timing measured from broadcast to L2 inclusion; final settlement on Ethereum L1 takes a few additional minutes.*
+
 ---
 
 ## 🌟 Why AgenticPay Bridge?
@@ -70,6 +72,8 @@ We do not use sales reps, chatbots, or automated marketing funnels. If you are a
 **AgenticPay Bridge** es un middleware de pagos institucional y ultra-liviano (<65MB de RAM) diseñado para fintechs, neobancos y agentes autónomos de IA. Conecta los cores bancarios tradicionales mediante APIs REST con rieles de liquidación en blockchain de alta velocidad (USDC/USDT sobre Base, Solana y Polygon) en menos de 800 milisegundos, protegido por un blindaje de seguridad determinístico en 4 capas (*Doctrina Octubre Negro*).
 
 > **Sandbox de referencia.** Este repositorio público es una implementación de referencia en memoria, pensada para revisión de arquitectura y evaluación de la API. Los adaptadores de producción para blockchain (liquidación real de USDC on-chain), el libro mayor persistente, las API keys por cliente y los webhooks firmados están disponibles bajo licencia — escribir a `carlos@thinkconnect.com.ar`.
+
+> **🔗 Prueba en vivo en blockchain (red de prueba Base Sepolia).** Transferencia real de USDC ejecutada con el adaptador de producción licenciado el 31/10/2026: **incluida en un bloque 0,59 s después del envío** (bloque 52.790.352). Verificala vos mismo: [`0x91db9ca6…cbd30f4` en Basescan](https://sepolia.basescan.org/tx/0x91db9ca644eb8b6bf911cf3e482cdeec9cb619b5429c1742d07e43d6cdbd30f4). *Tiempo medido desde el envío hasta la inclusión en la red L2; el asentamiento final en Ethereum L1 demora unos minutos más.*
 
 ---
 
