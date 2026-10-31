@@ -12,6 +12,8 @@
 
 **AgenticPay Bridge** is an institutional, ultra-lean (<65MB RAM) payment middleware designed for modern fintechs, neobanks, and autonomous AI agent runtimes. It connects traditional RESTful banking platforms to high-performance blockchain settlement rails (USDC/USDT on Base, Solana, and Polygon) in sub-800 milliseconds, reinforced with deterministic, four-layer defensive security controls (*Black October* doctrine).
 
+> **Reference sandbox.** This public repository is an in-memory reference implementation for architecture review and API evaluation. Production blockchain adapters (on-chain USDC settlement), persistent ledger, per-client API keys and signed webhooks are available under license — contact `carlos@thinkconnect.com.ar`.
+
 ---
 
 ## 🌟 Why AgenticPay Bridge?
@@ -30,7 +32,7 @@
 
 ### Option A: Self-Hosted in 60 Seconds (Local Docker)
 ```bash
-git clone https://github.com/thinkconnect-ia/agentic-pay-bridge.git
+git clone https://github.com/charliemza/agentic-pay-bridge.git
 cd agentic-pay-bridge
 docker compose up -d
 ```
@@ -50,6 +52,11 @@ For a rigorous mathematical breakdown of the settlement protocols, cryptographic
 
 ---
 
+## ⚖️ Regulatory & Compliance Notice
+AgenticPay Bridge is infrastructure software. It does not custody third-party funds and is not a money transmitter, exchange, or payment institution. Any party that operates it to move stablecoins or fiat on behalf of third parties is solely responsible for KYC/AML, sanctions screening, travel-rule obligations, and any licences required in its jurisdiction (e.g. MSB/MTL in the US, VASP/PSAV registration, MiCA in the EU). Nothing in this repository constitutes legal, tax, or financial advice.
+
+---
+
 ## 📬 Engineer-to-Engineer Contact
 We do not use sales reps, chatbots, or automated marketing funnels. If you are a fintech CTO, Lead Architect, or SRE exploring integration with proprietary banking cores:
 * **Direct Engineering Contact:** Carlos Ferro — Principal Infrastructure & DevOps Engineer
@@ -61,6 +68,8 @@ We do not use sales reps, chatbots, or automated marketing funnels. If you are a
 # 🇪🇸 Versión en Español
 
 **AgenticPay Bridge** es un middleware de pagos institucional y ultra-liviano (<65MB de RAM) diseñado para fintechs, neobancos y agentes autónomos de IA. Conecta los cores bancarios tradicionales mediante APIs REST con rieles de liquidación en blockchain de alta velocidad (USDC/USDT sobre Base, Solana y Polygon) en menos de 800 milisegundos, protegido por un blindaje de seguridad determinístico en 4 capas (*Doctrina Octubre Negro*).
+
+> **Sandbox de referencia.** Este repositorio público es una implementación de referencia en memoria, pensada para revisión de arquitectura y evaluación de la API. Los adaptadores de producción para blockchain (liquidación real de USDC on-chain), el libro mayor persistente, las API keys por cliente y los webhooks firmados están disponibles bajo licencia — escribir a `carlos@thinkconnect.com.ar`.
 
 ---
 
@@ -80,7 +89,7 @@ We do not use sales reps, chatbots, or automated marketing funnels. If you are a
 
 ### Opción A: Auto-Alojado en 60 Segundos (Docker Local)
 ```bash
-git clone https://github.com/thinkconnect-ia/agentic-pay-bridge.git
+git clone https://github.com/charliemza/agentic-pay-bridge.git
 cd agentic-pay-bridge
 docker compose up -d
 ```
@@ -90,6 +99,11 @@ El motor queda corriendo en `http://localhost:8088`. La documentación interacti
 Si estás evaluando la herramienta para una fintech o plataforma y preferís no instalar nada localmente durante la evaluación técnica, te provisionamos un **entorno sandbox dedicado y aislado en nuestros propios servidores** por 72 horas con wallets pre-cargadas y llaves de prueba listas:
 * Solicitalo directamente ingeniero a ingeniero escribiendo a: **`carlos@thinkconnect.com.ar`**
 * Plazo de entrega: Entorno montado y activo en menos de 15 minutos.
+
+---
+
+## ⚖️ Aviso Regulatorio y de Cumplimiento
+AgenticPay Bridge es software de infraestructura. No custodia fondos de terceros ni actúa como transmisor de dinero, exchange o entidad de pago. Quien lo opere para mover stablecoins o dinero fíat por cuenta de terceros es el único responsable de KYC/AML, control de listas de sanciones, regla de viaje y de las licencias o registros que exija su jurisdicción (por ejemplo, registro de PSAV ante la CNV en Argentina, MSB/MTL en EE.UU. o MiCA en la UE). Nada en este repositorio constituye asesoramiento legal, impositivo ni financiero.
 
 ---
 
