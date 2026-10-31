@@ -1,6 +1,7 @@
 # ⚡ AgenticPay Bridge — Turnkey Blockchain Payment Gateway & Agentic Settlement Core
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: Proprietary Evaluation](https://img.shields.io/badge/License-Proprietary%20Evaluation%20(5--Day%20Trial)-orange.svg)](LICENSE)
+[![Security Enclave](https://img.shields.io/badge/Enclave-Cryptographic%20Time--Lock-red.svg)]()
 [![Python: 3.12](https://img.shields.io/badge/Python-3.12-emerald.svg)]()
 [![FastAPI](https://img.shields.io/badge/Framework-FastAPI-teal.svg)]()
 [![Tests](https://img.shields.io/badge/Tests-100%25%20Passing-brightgreen.svg)]()
@@ -53,7 +54,7 @@ For a rigorous mathematical breakdown of the settlement protocols, cryptographic
 We do not use sales reps, chatbots, or automated marketing funnels. If you are a fintech CTO, Lead Architect, or SRE exploring integration with proprietary banking cores:
 * **Direct Engineering Contact:** Carlos Ferro — Principal Infrastructure & DevOps Engineer
 * **Email:** `carlos@thinkconnect.com.ar`
-* **Contributions & Issues:** Pull requests, threat vector proposals, and benchmark contributions are welcome under the MIT License.
+* **Licensing:** Distributed under the ThinkConnect Proprietary Evaluation License (5-Day Time-Locked Enclave). Enterprise production keys available upon request.
 
 ---
 
@@ -96,4 +97,4 @@ Si estás evaluando la herramienta para una fintech o plataforma y preferís no 
 No usamos representantes comerciales ni intermediarios. Si sos CTO, Arquitecto de Software o Lead de una fintech y querés evaluar la integración con tu core bancario propietario:
 * **Responsable Técnico:** Carlos Ferro — Principal Infrastructure & DevOps Engineer
 * **Email Directo:** `carlos@thinkconnect.com.ar`
-* **Contribuciones:** Abierto a Pull Requests y adaptaciones bajo Licencia MIT.
+* **Licenciamiento:** Distribuido bajo Licencia Propietaria de Evaluación (Enclave Temporal de 5 Días). Llaves maestras de producción enterprise disponibles a pedido.

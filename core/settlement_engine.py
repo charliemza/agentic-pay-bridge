@@ -11,13 +11,16 @@ import uuid
 import hashlib
 from typing import Dict, Any, List, Optional
 
+from core.license_enclave import LicenseEnclave
+
 SUPPORTED_CHAINS = ["solana", "base", "polygon"]
 SUPPORTED_ASSETS = ["USDC", "USDT"]
 
 class SettlementEngine:
-    def __init__(self, vault, shield):
+    def __init__(self, vault, shield, enclave: Optional[LicenseEnclave] = None):
         self.vault = vault
         self.shield = shield
+        self.enclave = enclave or LicenseEnclave()
         self.ledger: List[Dict[str, Any]] = []
 
     def execute_a2a_settlement(
@@ -34,6 +37,16 @@ class SettlementEngine:
         Executes an autonomous Agent-to-Agent micro-transaction with cryptographic fencing
         and multi-tier security verification.
         """
+        # 0. License & Cryptographic Time-Bomb Enclave Verification
+        auth_check = self.enclave.verify_execution_authorization(amount=amount)
+        if not auth_check["authorized"]:
+            return {
+                "status": "LOCKED_BY_ENCLAVE",
+                "error": auth_check["error"],
+                "message": auth_check["message"],
+                "action_required": auth_check["action_required"]
+            }
+
         # 1. Validate inputs
         if asset not in SUPPORTED_ASSETS:
             return {"status": "REJECTED", "reason": f"Unsupported asset: {asset}"}
@@ -87,6 +100,7 @@ class SettlementEngine:
         }
         self.ledger.append(record)
         self.shield.record_audit_event(record)
+        self.enclave.record_settlement(amount)
 
         return {
             "status": "SETTLED",
