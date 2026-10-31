@@ -53,5 +53,6 @@ Thumbs.db
 *.hex
 *private*
 .license_enclave_state.dat
+.agenticpay_enclave.state
 00_ThinkConnect_Master_Keys/
 
