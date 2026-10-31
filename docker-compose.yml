@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  agentic-pay-bridge:
+    image: thinkconnect/agentic-pay-bridge:latest
+    build: .
+    container_name: agentic_pay_bridge
+    restart: unless-stopped
+    ports:
+      - "8088:8088"
+    environment:
+      - ENVIRONMENT=production
+      - LOG_LEVEL=info
+      - MAX_TX_AMOUNT=5000.0
+      - MAX_VELOCITY_PER_MIN=15000.0
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+          cpus: '0.5'
